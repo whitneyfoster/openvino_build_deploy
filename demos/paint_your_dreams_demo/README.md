@@ -1,6 +1,6 @@
 # Paint Your Dreams with OpenVINO™
 
-The demo generates images in seconds on Intel hardware. There are many options to customize the demo behaviour:
+The demo generates images in seconds on Intel hardware, provide either text prompt or a both text and an image to produce results. There are many options to customize the demo behaviour:
 - inference device
 - number of steps
 - image size
@@ -9,7 +9,7 @@ The demo generates images in seconds on Intel hardware. There are many options t
 
 Check "Generate endlessly" to generate a new image just after the previous has appeared (a very attention-bringing thing).
 
-![image](https://github.com/openvinotoolkit/openvino_build_deploy/assets/4547501/a7f53cf2-a40b-4eb2-bb9a-72969ce8ad04)
+![image](https://github.com/user-attachments/assets/9885d395-d16f-4d01-99b0-90b04928a915)
 
 Here are the steps involved in this demo:
 
@@ -21,9 +21,9 @@ Step 2: Run the Application
 
 Now, let's dive into the steps starting with installing Python.
 
-**Input text:** a beautiful pink unicorn, 8k
-
-![unicorn](https://user-images.githubusercontent.com/29454499/277367065-13a8f622-8ea7-4d12-b3f8-241d4499305e.png)
+**Input image:** Output from text to image pipeline
+**Input text:** Make me a super hero, 8k
+![superhero](https://github.com/user-attachments/assets/3cf2cee2-9e7e-4592-a0a4-d653446cf406)
 
 ## Step 0
 
@@ -91,9 +91,11 @@ To run the application, use the following command:
 python main.py
 ```
 
-During the first run (i.e., before generating the first image), the application will download the model online. Please wait until the process is completed and do not disconnect the internet or close the application. Additionally, the first run may take significantly longer due to caching and other behavior, and you will notice a significant speed-up after warm-up. 
+During the first run (i.e., before generating the first image), the application will download the models online. Please wait until the process is completed and do not disconnect the internet or close the application. Additionally, the first run may take significantly longer due to caching and other behavior, and you will notice a significant speed-up after warm-up. 
 
-To change the model precision to FP16, run:
+This demo supports both text to image pipeline and image to image pipeline. Leave the input image blank to use the text to image pipeline. 
+
+To change the text to image model precision to FP16, run:
 
 ```shell
 python main.py --model_name OpenVINO/LCM_Dreamshaper_v7-fp16-ov
